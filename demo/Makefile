@@ -53,9 +53,14 @@ dynamic: easywsclient.o
 		$(FLAGS) \
 		-L lib \
 
-x86_64_build: prepare_x86_64 easywsclient.o.x86_64
+x86_64_test_dylib:
+	export DYLD_LIBRARY_PATH=$(PWD)/lib && ./demo test
+
+x86_64_build: x86_64_build_static x86_64_build_dynamic x86_64_test_dylib
+	
+x86_64_build_static: prepare_x86_64 easywsclient.o.x86_64
 	arch -x86_64 \
-		g++ -o demo \
+		g++ -o demostatic \
 		easywsclient.o \
 		main.cc \
 		chainmain.cc \
@@ -64,6 +69,31 @@ x86_64_build: prepare_x86_64 easywsclient.o.x86_64
 		lib/libplay_cpp_sdk.a \
 		-std=c++14 \
 		$(FLAGS)
+
+
+x86_64_build_dynamic : prepare_x86_64 easywsclient.o.x86_64
+	install_name_tool -id @rpath/libplay_cpp_sdk.dylib ./lib/libplay_cpp_sdk.dylib
+	otool -L ./lib/libplay_cpp_sdk.dylib
+	arch -x86_64 \
+		g++ -o demo \
+		easywsclient.o \
+		main.cc \
+		chainmain.cc \
+		cronos.cc \
+		extra.cc \
+		./include/walletconnectcallback.cc \
+		./include/nft.cc \
+		./include/pay.cc \
+		./include/defi-wallet-core-cpp/src/contract.rs.cc  \
+		./include/defi-wallet-core-cpp/src/core.cc \
+		./include/defi-wallet-core-cpp/src/nft.rs.cc \
+		./include/defi-wallet-core-cpp/src/uint.rs.cc \
+		./include/extra-cpp-bindings/src/lib.rs.cc  \
+		lib/libplay_cpp_sdk.dylib \
+		lib/libcxxbridge1.a \
+		-std=c++14 \
+		$(FLAGS)
+	
 
 run_static:
 	. ./.env && ./demostatic
