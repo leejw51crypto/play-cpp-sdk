@@ -57,6 +57,8 @@ x86_64_test_dylib:
 	./demo test
 
 x86_64_build: x86_64_build_static x86_64_build_dynamic
+
+x86_64_build_test:x86_64_build_dynamic x86_64_test_dylib
 	
 x86_64_build_static: prepare_x86_64 easywsclient.o.x86_64
 	arch -x86_64 \
