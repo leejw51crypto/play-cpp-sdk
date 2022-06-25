@@ -53,6 +53,7 @@ dynamic: easywsclient.o
 		$(FLAGS) \
 		-L lib \
 
+# test whether dylib loading correctly
 x86_64_test_dylib:
 	./demo test
 
