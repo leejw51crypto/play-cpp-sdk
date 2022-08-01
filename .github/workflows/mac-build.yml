@@ -21,7 +21,7 @@ jobs:
           submodules: recursive
 
       - name: Build play-cpp-sdk library
-        run: make cpp
+        run: make build_cpp
 
       - name: Pack binaries and bindings
         run: |
