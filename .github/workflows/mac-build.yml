@@ -20,9 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: recursive          
+          submodules: recursive
       - name: Build play-cpp-sdk library
-        run: make build_cpp
+        run: make
       - name: Pack binaries and bindings
         run: |
           PLATFORM="$(uname -s)_x86_64"
