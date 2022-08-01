@@ -14,13 +14,15 @@ on:
 
 jobs:
   mac-build:
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
 
       - name: Build play-cpp-sdk library
+        env: 
+          - MACOSX_DEPLOYMENT_TARGET=10.15
         run: make build_cpp
 
       - name: Pack binaries and bindings
