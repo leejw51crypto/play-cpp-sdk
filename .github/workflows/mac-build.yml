@@ -21,11 +21,7 @@ jobs:
           submodules: recursive
 
       - name: Build play-cpp-sdk library
-        run: ./checkmac.sh && cargo build --package play-cpp-sdk --release
-
-      - name: Build demo project
-        working-directory: demo
-        run: make
+        run: make cpp
 
       - name: Pack binaries and bindings
         run: |
