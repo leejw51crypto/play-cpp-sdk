@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     try {
         chainmain_process();   // chain-main
         test_chainmain_nft();  // chainmain nft tests
-        test_login();          // decentralized login
+test_login();          // decentralized login
         cronos_process();      // cronos
         test_cronos_testnet(); // cronos testnet
     } catch (const rust::cxxbridge1::Error &e) {
