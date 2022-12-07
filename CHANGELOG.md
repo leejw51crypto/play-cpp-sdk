@@ -1,5 +1,9 @@
 # Changelog
 ## [Unreleased]
+
+## [v0.0.12-alpha] - 2022-12-7
+- Dynamic Contract C++ Bindings : Encode,Call,Send
+- Minting C++ Example : Encode,Send
 ## [v0.0.11-alpha] - 2022-11-14
 - Add IOS build
 - Update defi-wallet-core-cpp to v0.3.0
