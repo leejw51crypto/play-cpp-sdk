@@ -9,30 +9,40 @@ CLANG_CXXFLAGS = -stdlib=libc++
 DEFAULT_CXXFLAGS =
 
 ifeq ($(CXX),g++)
-  CXXFLAGS += $(GCC_CXXFLAGS)
+CXXFLAGS += $(GCC_CXXFLAGS)
 else ifneq (,$(findstring clang,$(CXX)))
-  CXXFLAGS += $(CLANG_CXXFLAGS)
+CXXFLAGS += $(CLANG_CXXFLAGS)
 else
-  CXXFLAGS += $(DEFAULT_CXXFLAGS)
+CXXFLAGS += $(DEFAULT_CXXFLAGS)
 endif
 
 ifeq ($(shell uname -m), x86_64)
-	TARGET_DIR = ../target/release
+ifeq ($(USE_ARM64),true) 
+CXX = clang++ -target arm64-apple-darwin # for arm64, we only use clang++
+TARGET_DIR = ../target/aarch64-apple-darwin/release
+else
+CXX = arch -x86_64 clang++ # for intel, we only use clang++
+TARGET_DIR = ../target/release
+endif
 endif
 
 ifeq ($(shell uname -m), arm64)
-	CXX = arch -x86_64 clang++ # for arm64, we only use clang++
-	TARGET_DIR = ../target/x86_64-apple-darwin/release
+ifeq ($(USE_ARM64),true)
+CXX = clang++  # for arm64, we only use clang++
+TARGET_DIR = ../target/release
 else
-
+CXX = arch -x86_64 clang++ # for intel, we only use clang++
+TARGET_DIR = ../target/x86_64-apple-darwin/release
+endif
+else
 endif
 
 ifeq ($(UNAME), Darwin)
-	FLAGS=$(CXXFLAGS) -framework Security -framework CoreFoundation
+FLAGS=$(CXXFLAGS) -framework Security -framework CoreFoundation
 endif
 
 ifeq ($(UNAME), Linux)
-	FLAGS=$(CXXFLAGS) -lpthread -ldl -lrt
+FLAGS=$(CXXFLAGS) -lpthread -ldl -lrt
 endif
 
 all: clean clone build
@@ -128,9 +138,14 @@ ifeq ($(UNAME), Darwin)
 endif
 
 cmake:
+# if mac and arm64 do nothing
+ifeq ($(USE_ARM64),true)
+	echo "skip cmake"
+else 
 	mkdir -p build
 	cd build && CXX="$(CXX)" CXXFLAGS=$(CXXFLAGS) cmake .. && make
-
+endif
+	
 run_static:
 	. ./.env && ./bin/demostatic && ./build/demostatic
 
