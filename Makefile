@@ -63,7 +63,7 @@ else
 endif		
 endif
 ifeq ($(UNAME), Linux)
-CXX=$(CXX) CXXFLAGS=$(CXXFLAGS) cargo build --package play-cpp-sdk --release
+	CXX=$(CXX) CXXFLAGS=$(CXXFLAGS) cargo build --package play-cpp-sdk --release
 endif
 endif
 
