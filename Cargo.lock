@@ -1215,7 +1215,7 @@ dependencies = [
  "cbc",
  "chacha20poly1305",
  "dashmap",
- "ethers",
+ "ethers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "eyre",
  "futures",
  "hex",
@@ -1257,7 +1257,7 @@ dependencies = [
  "cosmos-sdk-proto",
  "cosmrs",
  "defi-wallet-core-proto",
- "ethers",
+ "ethers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "eyre",
  "futures",
  "futures-util",
@@ -1301,7 +1301,7 @@ dependencies = [
  "cxx-build",
  "defi-wallet-core-common",
  "defi-wallet-core-proto",
- "ethers",
+ "ethers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "hex",
  "keyring",
  "serde",
@@ -1697,14 +1697,29 @@ version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "839a392641e746a1ff365ef7c901238410b5c6285d240cf2409ffaaa7df9a78a"
 dependencies = [
- "ethers-addressbook",
- "ethers-contract",
- "ethers-core",
- "ethers-etherscan",
- "ethers-middleware",
- "ethers-providers",
- "ethers-signers",
- "ethers-solc",
+ "ethers-addressbook 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-contract 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-etherscan 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-middleware 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-providers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-signers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-solc 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "ethers"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "ethers-addressbook 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-contract 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-etherscan 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-middleware 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-providers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-signers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-solc 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
 ]
 
 [[package]]
@@ -1713,7 +1728,18 @@ version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9e1e010165c08a2a3fa43c0bb8bc9d596f079a021aaa2cc4e8d921df09709c95"
 dependencies = [
- "ethers-core",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "once_cell",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "ethers-addressbook"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "once_cell",
  "serde",
  "serde_json",
@@ -1725,10 +1751,28 @@ version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "be33fd47a06cc8f97caf614cf7cf91af9dd6dcd767511578895fa884b430c4b8"
 dependencies = [
- "ethers-contract-abigen",
- "ethers-contract-derive",
- "ethers-core",
- "ethers-providers",
+ "ethers-contract-abigen 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-contract-derive 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-providers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "futures-util",
+ "hex",
+ "once_cell",
+ "pin-project",
+ "serde",
+ "serde_json",
+ "thiserror",
+]
+
+[[package]]
+name = "ethers-contract"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "ethers-contract-abigen 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-contract-derive 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-providers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "futures-util",
  "hex",
  "once_cell",
@@ -1747,8 +1791,35 @@ dependencies = [
  "Inflector",
  "cfg-if",
  "dunce",
- "ethers-core",
- "ethers-etherscan",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-etherscan 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "eyre",
+ "getrandom 0.2.10",
+ "hex",
+ "prettyplease",
+ "proc-macro2",
+ "quote",
+ "regex",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "syn 1.0.109",
+ "tokio",
+ "toml",
+ "url",
+ "walkdir",
+]
+
+[[package]]
+name = "ethers-contract-abigen"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "Inflector",
+ "cfg-if",
+ "dunce",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-etherscan 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "eyre",
  "getrandom 0.2.10",
  "hex",
@@ -1772,8 +1843,23 @@ version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "001b33443a67e273120923df18bab907a0744ad4b5fef681a8b0691f2ee0f3de"
 dependencies = [
- "ethers-contract-abigen",
- "ethers-core",
+ "ethers-contract-abigen 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "eyre",
+ "hex",
+ "proc-macro2",
+ "quote",
+ "serde_json",
+ "syn 1.0.109",
+]
+
+[[package]]
+name = "ethers-contract-derive"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "ethers-contract-abigen 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "eyre",
  "hex",
  "proc-macro2",
@@ -1817,13 +1903,63 @@ dependencies = [
 ]
 
 [[package]]
+name = "ethers-core"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "arrayvec",
+ "bytes",
+ "cargo_metadata",
+ "chrono",
+ "convert_case",
+ "elliptic-curve",
+ "ethabi",
+ "generic-array 0.14.7",
+ "getrandom 0.2.10",
+ "hex",
+ "k256",
+ "num_enum",
+ "once_cell",
+ "open-fastrlp",
+ "proc-macro2",
+ "rand 0.8.5",
+ "rlp",
+ "rlp-derive",
+ "serde",
+ "serde_json",
+ "strum",
+ "syn 1.0.109",
+ "tempfile",
+ "thiserror",
+ "tiny-keccak",
+ "unicode-xid",
+]
+
+[[package]]
 name = "ethers-etherscan"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0d769437fafd0b47ea8b95e774e343c5195c77423f0f54b48d11c0d9ed2148ad"
 dependencies = [
- "ethers-core",
- "ethers-solc",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-solc 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "getrandom 0.2.10",
+ "reqwest",
+ "semver",
+ "serde",
+ "serde-aux",
+ "serde_json",
+ "thiserror",
+ "tracing",
+]
+
+[[package]]
+name = "ethers-etherscan"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-solc 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "getrandom 0.2.10",
  "reqwest",
  "semver",
@@ -1842,11 +1978,36 @@ checksum = "a7dd311b76eab9d15209e4fd16bb419e25543709cbdf33079e8923dfa597517c"
 dependencies = [
  "async-trait",
  "auto_impl",
- "ethers-contract",
- "ethers-core",
- "ethers-etherscan",
- "ethers-providers",
- "ethers-signers",
+ "ethers-contract 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-etherscan 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-providers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-signers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "futures-locks",
+ "futures-util",
+ "instant",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "tokio",
+ "tracing",
+ "tracing-futures",
+ "url",
+]
+
+[[package]]
+name = "ethers-middleware"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "async-trait",
+ "auto_impl",
+ "ethers-contract 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-etherscan 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-providers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
+ "ethers-signers 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "futures-locks",
  "futures-util",
  "instant",
@@ -1870,8 +2031,44 @@ dependencies = [
  "auto_impl",
  "base64 0.21.2",
  "enr",
- "ethers-core",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures-channel",
+ "futures-core",
+ "futures-timer",
+ "futures-util",
+ "getrandom 0.2.10",
+ "hashers",
+ "hex",
+ "http",
+ "once_cell",
+ "parking_lot 0.11.2",
+ "pin-project",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "thiserror",
+ "tokio",
+ "tokio-tungstenite",
+ "tracing",
+ "tracing-futures",
+ "url",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "wasm-timer",
+ "web-sys",
+ "ws_stream_wasm",
+]
+
+[[package]]
+name = "ethers-providers"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "async-trait",
+ "auto_impl",
+ "base64 0.21.2",
+ "enr",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "futures-core",
  "futures-timer",
  "futures-util",
@@ -1909,7 +2106,25 @@ dependencies = [
  "coins-bip39",
  "elliptic-curve",
  "eth-keystore",
- "ethers-core",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "hex",
+ "rand 0.8.5",
+ "sha2 0.10.7",
+ "thiserror",
+ "tracing",
+]
+
+[[package]]
+name = "ethers-signers"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "async-trait",
+ "coins-bip32",
+ "coins-bip39",
+ "elliptic-curve",
+ "eth-keystore",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "hex",
  "rand 0.8.5",
  "sha2 0.10.7",
@@ -1925,7 +2140,38 @@ checksum = "e5500989f6abfc751a660a3090c7d66790300ff59b7744cedb89e23dd1179d83"
 dependencies = [
  "cfg-if",
  "dunce",
- "ethers-core",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "getrandom 0.2.10",
+ "glob",
+ "hex",
+ "home",
+ "md-5",
+ "num_cpus",
+ "once_cell",
+ "path-slash",
+ "rayon",
+ "regex",
+ "semver",
+ "serde",
+ "serde_json",
+ "solang-parser",
+ "svm-rs",
+ "thiserror",
+ "tiny-keccak",
+ "tokio",
+ "tracing",
+ "walkdir",
+ "yansi",
+]
+
+[[package]]
+name = "ethers-solc"
+version = "2.0.0"
+source = "git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2#e8b8c4b6079a018002c28db3153acee73ba61ac2"
+dependencies = [
+ "cfg-if",
+ "dunce",
+ "ethers-core 2.0.0 (git+https://github.com/leejw51crypto/ethers-rs?rev=e8b8c4b6079a018002c28db3153acee73ba61ac2)",
  "getrandom 0.2.10",
  "glob",
  "hex",
@@ -1965,15 +2211,15 @@ dependencies = [
  "defi-wallet-connect",
  "defi-wallet-core-common",
  "defi-wallet-core-cpp",
- "ethers",
- "ethers-addressbook",
- "ethers-contract",
- "ethers-core",
- "ethers-etherscan",
- "ethers-middleware",
- "ethers-providers",
- "ethers-signers",
- "ethers-solc",
+ "ethers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-addressbook 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-contract 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-core 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-etherscan 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-middleware 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-providers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-signers 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-solc 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "eyre",
  "hex",
  "hex-literal",
@@ -3573,7 +3819,7 @@ checksum = "26072860ba924cbfa98ea39c8c19b4dd6a4a25423dbdf219c1eca91aa0cf6964"
 
 [[package]]
 name = "play-cpp-sdk"
-version = "0.0.23-alpha"
+version = "0.0.24-alpha"
 dependencies = [
  "defi-wallet-core-cpp",
  "extra-cpp-bindings",
