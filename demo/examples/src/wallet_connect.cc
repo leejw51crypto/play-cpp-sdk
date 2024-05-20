@@ -44,15 +44,21 @@ rust::Box<Walletconnect2Client> make_new_client(std::string filename) {
             walletconnect2_restore_client(sessioninfostring);
         return client;
     } else {
-        std::string projectid= std::getenv("NEXT_PUBLIC_PROJECT_ID") ? std::getenv("NEXT_PUBLIC_PROJECT_ID") : "";
+        std::string projectid = std::getenv("NEXT_PUBLIC_PROJECT_ID")
+                                    ? std::getenv("NEXT_PUBLIC_PROJECT_ID")
+                                    : "";
         // assert projectid not ""
         assert(projectid != "");
 
         rust::Box<Walletconnect2Client> client = walletconnect2_client_new(
             "wss://relay.walletconnect.org", projectid,
-            "{\"eip155\":{\"methods\":[\"eth_sendTransaction\",\"eth_signTransaction\",\"eth_sign\",\"personal_sign\",\"eth_signTypedData\"],\"chains\":[\"eip155:338\"],\"events\":[\"chainChanged\",\"accountsChanged\"]}}",
-            "{\"description\":\"Defi WalletConnect v2 example.\",\"url\":\"http://localhost:8080/\",\"icons\":[],\"name\":\"Defi WalletConnect Web3 Example\"}"
-        );
+            "{\"eip155\":{\"methods\":[\"eth_sendTransaction\",\"eth_"
+            "signTransaction\",\"eth_sign\",\"personal_sign\",\"eth_"
+            "signTypedData\"],\"chains\":[\"eip155:338\"],\"events\":["
+            "\"chainChanged\",\"accountsChanged\"]}}",
+            "{\"description\":\"Defi WalletConnect v2 "
+            "example.\",\"url\":\"http://localhost:8080/"
+            "\",\"icons\":[],\"name\":\"Defi WalletConnect Web3 Example\"}");
         std::cout << "qrcode= " << client->get_connection_string() << std::endl;
 
         return client;
@@ -110,8 +116,8 @@ int main(int argc, char *argv[]) {
                       << std::endl;
             std::cout << "signature length=" << sig1.size() << std::endl;
 
-            bool verifyresult=client->verify_personal_blocking(
-                "hello",sig1, result.eip155.accounts[0].address.address);
+            bool verifyresult = client->verify_personal_blocking(
+                "hello", sig1, result.eip155.accounts[0].address.address);
             std::cout << "verify result=" << verifyresult << std::endl;
         }
 
@@ -136,7 +142,8 @@ int main(int argc, char *argv[]) {
             // info.to = "0x....";
             info.to = rust::String(
                 std::string("0x") +
-                address_to_hex_string(result.eip155.accounts[0].address.address).c_str());
+                address_to_hex_string(result.eip155.accounts[0].address.address)
+                    .c_str());
             info.value = "1000000000000000000"; // 1 TCRO
             info.common.chainid = result.eip155.accounts[0].chain_id;
             rust::Vec<uint8_t> tx_hash =
@@ -175,7 +182,8 @@ int main(int argc, char *argv[]) {
             assert(erc20.decimals() == 18);
             rust::String from_address = rust::String(
                 std::string("0x") +
-                address_to_hex_string(result.eip155.accounts[0].address.address).c_str());
+                address_to_hex_string(result.eip155.accounts[0].address.address)
+                    .c_str());
             U256 erc20_balance = erc20.balance_of(from_address);
             std::cout << "erc20 balance=" << erc20_balance.to_string()
                       << std::endl;
@@ -198,7 +206,8 @@ int main(int argc, char *argv[]) {
                                                  // walletconnect
 
             rust::Vec<uint8_t> tx_hash = client->send_contract_transaction(
-                contract_action, common, result.eip155.accounts[0].address.address);
+                contract_action, common,
+                result.eip155.accounts[0].address.address);
 
             std::cout << "transaction_hash="
                       << bytes_to_hex_string(tx_hash).c_str() << std::endl;
