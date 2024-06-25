@@ -11,15 +11,15 @@ crate-type = ["staticlib", "rlib", "cdylib"]
 [dependencies]
 anyhow = "1"
 cxx = "1"
-ethers = { version = "2.0", features = ["rustls"] }
-ethers-addressbook = { version = "2.0"}
-ethers-contract = { version = "2.0" }
-ethers-core = { version = "2.0" }
-ethers-etherscan = { version = "2.0" }
-ethers-middleware = { version = "2.0" }
-ethers-providers = { version = "2.0"}
-ethers-signers = { version = "2.0" }
-ethers-solc = { version = "2.0"}
+ethers = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos",features = ["rustls"] }
+ethers-addressbook = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos"}
+ethers-contract = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos" }
+ethers-core = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos" }
+ethers-etherscan = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos" }
+ethers-middleware = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos" }
+ethers-providers = { git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos"}
+ethers-signers = {git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos" }
+ethers-solc = {git="https://github.com/leejw51crypto/ethers-rs.git", branch="cronos"}
 
 eyre = "0.6"
 reqwest = { version = "0.11", default-features = false, features = ["blocking", "json", "rustls-tls"] }
